@@ -2806,3 +2806,32 @@ h4 {
         margin-bottom: 0;
     }
 }
+/* ==========================================
+   MOBILE SPACING FIX: ABOUT AGENT TO LISTINGS
+   ========================================== */
+@media (max-width: 768px) {
+
+    /* 1. Reduce bottom spacing on the About/Agent section */
+    .about,
+    .about-section,
+    #about {
+        padding-bottom: 24px !important;
+        margin-bottom: 0 !important;
+    }
+
+    /* 2. Reduce top spacing on the Featured Property / Listings section */
+    .properties,
+    .featured-properties,
+    .listings-section,
+    #properties {
+        padding-top: 32px !important;
+        margin-top: 0 !important;
+    }
+
+    /* 3. Tighten section header top margin if extra space exists */
+    .properties .section-header,
+    #properties .section-header {
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+    }
+}
