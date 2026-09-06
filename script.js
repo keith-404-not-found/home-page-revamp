@@ -45,29 +45,24 @@ document.addEventListener('DOMContentLoaded', () => {
   const navLinks = document.querySelectorAll('.nav-link');
 
   if (hamburgerBtn && navMenu) {
-    // Open/Close Mobile Menu
     const toggleMenu = (open) => {
       const isOpen = open !== undefined ? open : !navMenu.classList.contains('active');
-      
       navMenu.classList.toggle('active', isOpen);
       hamburgerBtn.classList.toggle('active', isOpen);
       hamburgerBtn.setAttribute('aria-expanded', isOpen.toString());
     };
 
-    // Hamburger Button Click
     hamburgerBtn.addEventListener('click', (e) => {
       e.stopPropagation();
       toggleMenu();
     });
 
-    // Close Menu on Nav Link Tap (preserves LINES smooth scrolling)
     navLinks.forEach(link => {
       link.addEventListener('click', () => {
         toggleMenu(false);
       });
     });
 
-    // Close Menu on Click/Tap Outside
     document.addEventListener('click', (e) => {
       if (navMenu.classList.contains('active') && 
           !navMenu.contains(e.target) && 
@@ -76,7 +71,6 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
-    // Close Menu on Escape Key
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && navMenu.classList.contains('active')) {
         toggleMenu(false);
@@ -84,6 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
+
   /* ==========================================================================
      3. HERO BACKGROUND SLIDESHOW
      ========================================================================== */
@@ -135,7 +130,6 @@ document.addEventListener('DOMContentLoaded', () => {
       const email = document.getElementById('email')?.value.trim();
       const message = document.getElementById('message')?.value.trim();
 
-      // Basic Validation Check
       if (!fullName || !email || !message) {
         formAlert.className = 'form-alert error';
         formAlert.textContent = 'Please fill out all required fields before submitting.';
@@ -143,15 +137,12 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
-      // Success State Simulation
       formAlert.className = 'form-alert success';
       formAlert.textContent = `Thank you, ${fullName}! Your inquiry has been received. Our team will contact you shortly.`;
       formAlert.classList.remove('hidden');
 
-      // Reset Form
       contactForm.reset();
 
-      // Auto-hide alert after 5 seconds
       setTimeout(() => {
         formAlert.classList.add('hidden');
       }, 5000);
@@ -236,31 +227,24 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ==========================================================================
      8. LUXURY SCROLL ANIMATION SYSTEM
      ========================================================================== */
-  
-  // Dynamic class assignment to ensure seamless animation without manually altering HTML tags
   const applyAnimationClasses = () => {
-    // Section Headers
     document.querySelectorAll('.section-header, .trust-title').forEach(el => {
       el.classList.add('reveal-on-scroll');
     });
 
-    // About/Agent Section Directional Reveals
     const aboutImg = document.querySelector('.about-image-col');
     const aboutContent = document.querySelector('.about-content-col');
     if (aboutImg) aboutImg.classList.add('reveal-left');
     if (aboutContent) aboutContent.classList.add('reveal-right');
 
-    // Contact Section Directional Reveals
     const contactInfo = document.querySelector('.contact-info-col');
     const contactFormCol = document.querySelector('.contact-form-col');
     if (contactInfo) contactInfo.classList.add('reveal-left');
     if (contactFormCol) contactFormCol.classList.add('reveal-right');
 
-    // Footer Reveal
     const footer = document.querySelector('.site-footer');
     if (footer) footer.classList.add('reveal-on-scroll');
 
-    // Staggered Cards & Items
     const staggerTargets = [
       '.property-card',
       '.service-card',
@@ -277,7 +261,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   applyAnimationClasses();
 
-  // Reveal Observer Engine
   const revealObserverOptions = {
     root: null,
     rootMargin: '0px 0px -80px 0px',
@@ -288,7 +271,7 @@ document.addEventListener('DOMContentLoaded', () => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('is-visible');
-        observer.unobserve(entry.target); // Unobserve to maximize performance
+        observer.unobserve(entry.target);
       }
     });
   }, revealObserverOptions);
@@ -298,89 +281,165 @@ document.addEventListener('DOMContentLoaded', () => {
 
 });
 
-  /* ==========================================================================
-     9. LINS SMOOTH SCROLLING INTEGRATION
-     ========================================================================== */
-     document.addEventListener("DOMContentLoaded", () => {
-    // 1. Initialize a new Lenis instance (Removed deprecated options)
-    const lenis = new Lenis({
-        duration: 1.2,       
-        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), 
-        orientation: 'vertical',        // Updated from direction
-        gestureOrientation: 'vertical', // Updated from gestureDirection
-        touchMultiplier: 2,
-    });
+/* ==========================================================================
+   9. LENIS SMOOTH SCROLLING INTEGRATION
+   ========================================================================== */
+document.addEventListener("DOMContentLoaded", () => {
+    if (typeof Lenis !== 'undefined') {
+        const lenis = new Lenis({
+            duration: 1.2,       
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), 
+            orientation: 'vertical',        
+            gestureOrientation: 'vertical', 
+            touchMultiplier: 2,
+        });
 
-    // 2. Create the animation frame loop
-    function raf(time) {
-        lenis.raf(time);
+        function raf(time) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+        }
+
         requestAnimationFrame(raf);
+
+        const resizeObserver = new ResizeObserver(() => {
+            lenis.resize();
+        });
+        resizeObserver.observe(document.body);
+
+        window.addEventListener('load', () => {
+            lenis.resize();
+        });
     }
-
-    // 3. Start the loop
-    requestAnimationFrame(raf);
-
-    // 4. CRITICAL FIX: Recalculate page height on load and layout changes.
-    // This stops the native scrollbar from fighting Lenis across different pages.
-    const resizeObserver = new ResizeObserver(() => {
-        lenis.resize();
-    });
-    resizeObserver.observe(document.body);
-
-    window.addEventListener('load', () => {
-        lenis.resize();
-    });
 });
 
 /* ==========================================================================
-  10 CENTERED PEEK-THROUGH GALLERY CAROUSEL
+   10. CENTERED PEEK-THROUGH GALLERY CAROUSEL
    ========================================================================== */
-// Add a parameter to check if the call is coming from initial page load
-function updateGallery(index, animate = true, isInitialLoad = false) {
-    currentIndex = index;
+window.addEventListener('load', () => {
+    const track = document.getElementById('galleryTrack');
+    const originalSlides = Array.from(document.querySelectorAll('.gallery-slide'));
+    const viewport = document.getElementById('galleryViewport');
+    const prevBtn = document.getElementById('galleryPrevBtn');
+    const nextBtn = document.getElementById('galleryNextBtn');
+    const counter = document.getElementById('galleryCounter');
+    const thumbnails = document.querySelectorAll('.thumb-card');
 
-    const activeSlide = allSlides[currentIndex];
-    const slideWidth = activeSlide.offsetWidth;
-    const viewportWidth = viewport.offsetWidth;
+    if (!track || originalSlides.length === 0 || !viewport) return;
 
-    // Calculate offset to place active slide dead-center
-    const centerPosition = (viewportWidth / 2) - (slideWidth / 2);
-    const translateX = centerPosition - (currentIndex * (slideWidth + gap));
+    // Create Clones for Infinite Loop
+    const firstClone = originalSlides[0].cloneNode(true);
+    const lastClone = originalSlides[originalSlides.length - 1].cloneNode(true);
 
-    // Toggle CSS transition for smooth movement vs instant silent jump
-    if (animate) {
-        track.style.transition = 'transform 0.45s cubic-bezier(0.25, 1, 0.5, 1)';
-    } else {
-        track.style.transition = 'none';
-    }
+    firstClone.classList.add('clone');
+    lastClone.classList.add('clone');
 
-    track.style.transform = `translateX(${translateX}px)`;
+    track.appendChild(firstClone);
+    track.insertBefore(lastClone, originalSlides[0]);
 
-    // Determine mapped index for UI controls (0 to totalRealSlides - 1)
-    let realIndex = currentIndex - 1;
-    if (currentIndex === 0) realIndex = totalRealSlides - 1;
-    if (currentIndex === allSlides.length - 1) realIndex = 0;
+    const allSlides = Array.from(track.children);
+    const totalRealSlides = originalSlides.length;
+    const gap = 24; 
 
-    // Update visual active states
-    allSlides.forEach((slide, i) => {
-        slide.classList.toggle('active', i === currentIndex);
-    });
+    let currentIndex = 1;
+    let isTransitioning = false;
 
-    // Update Counter
-    if (counter) {
-        counter.textContent = `${realIndex + 1} / ${totalRealSlides}`;
-    }
+    function updateGallery(index, animate = true, isInitialLoad = false) {
+        currentIndex = index;
 
-    // Update Thumbnails
-    thumbnails.forEach((thumb, i) => {
-        if (i === realIndex) {
-            thumb.classList.add('active');
-            // FIX: Only scroll thumbnail strip into view if it's NOT the initial page load!
-            if (!isInitialLoad) {
-                thumb.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-            }
+        const activeSlide = allSlides[currentIndex];
+        const slideWidth = activeSlide.offsetWidth;
+        const viewportWidth = viewport.offsetWidth;
+
+        const centerPosition = (viewportWidth / 2) - (slideWidth / 2);
+        const translateX = centerPosition - (currentIndex * (slideWidth + gap));
+
+        if (animate) {
+            track.style.transition = 'transform 0.45s cubic-bezier(0.25, 1, 0.5, 1)';
         } else {
-            thumb.classList.remove('active');
+            track.style.transition = 'none';
+        }
+
+        track.style.transform = `translateX(${translateX}px)`;
+
+        let realIndex = currentIndex - 1;
+        if (currentIndex === 0) realIndex = totalRealSlides - 1;
+        if (currentIndex === allSlides.length - 1) realIndex = 0;
+
+        allSlides.forEach((slide, i) => {
+            slide.classList.toggle('active', i === currentIndex);
+        });
+
+        if (counter) {
+            counter.textContent = `${realIndex + 1} / ${totalRealSlides}`;
+        }
+
+        thumbnails.forEach((thumb, i) => {
+            if (i === realIndex) {
+                thumb.classList.add('active');
+                if (!isInitialLoad) {
+                    const container = thumb.parentElement;
+                    if (container) {
+                        const scrollTarget = thumb.offsetLeft - (container.offsetWidth / 2) + (thumb.offsetWidth / 2);
+                        container.scrollTo({
+                            left: scrollTarget,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            } else {
+                thumb.classList.remove('active');
+            }
+        });
+    }
+
+    track.addEventListener('transitionend', () => {
+        isTransitioning = false;
+        if (currentIndex === 0) {
+            updateGallery(totalRealSlides, false, false);
+        } else if (currentIndex === allSlides.length - 1) {
+            updateGallery(1, false, false);
         }
     });
-}
+
+    if (prevBtn) {
+        prevBtn.addEventListener('click', () => {
+            if (isTransitioning) return;
+            isTransitioning = true;
+            updateGallery(currentIndex - 1, true, false);
+        });
+    }
+
+    if (nextBtn) {
+        nextBtn.addEventListener('click', () => {
+            if (isTransitioning) return;
+            isTransitioning = true;
+            updateGallery(currentIndex + 1, true, false);
+        });
+    }
+
+    thumbnails.forEach((thumb) => {
+        thumb.addEventListener('click', () => {
+            if (isTransitioning) return;
+            const realIndex = parseInt(thumb.getAttribute('data-index'), 10);
+            isTransitioning = true;
+            updateGallery(realIndex + 1, true, false);
+        });
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (isTransitioning) return;
+        if (e.key === 'ArrowLeft') {
+            isTransitioning = true;
+            updateGallery(currentIndex - 1, true, false);
+        }
+        if (e.key === 'ArrowRight') {
+            isTransitioning = true;
+            updateGallery(currentIndex + 1, true, false);
+        }
+    });
+
+    window.addEventListener('resize', () => updateGallery(currentIndex, false, false));
+
+    // Initialize gallery post image layout load
+    updateGallery(1, false, true);
+});
