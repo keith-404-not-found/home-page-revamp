@@ -667,15 +667,17 @@
 
     <script src="script.js"></script>
     <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
-    // Disable automatic browser scroll restoration on refresh
-if ('scrollRestoration' in history) {
-    history.scrollRestoration = 'manual';
-}
-
-// Force window to scroll to top (0, 0) on DOM load
-window.addEventListener('DOMContentLoaded', () => {
-    window.scrollTo(0, 0);
-});
+    <script>
+        // Keep Section 10's original updateGallery code:
+        thumbnails.forEach((thumb, i) => {
+            if (i === realIndex) {
+                thumb.classList.add('active');
+                thumb.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+            } else {
+                thumb.classList.remove('active');
+            }
+        });
+    </script>
 </body>
 
 </html>
