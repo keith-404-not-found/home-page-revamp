@@ -335,136 +335,52 @@ document.addEventListener('DOMContentLoaded', () => {
 /* ==========================================================================
   10 CENTERED PEEK-THROUGH GALLERY CAROUSEL
    ========================================================================== */
-document.addEventListener('DOMContentLoaded', () => {
-    const track = document.getElementById('galleryTrack');
-    const originalSlides = Array.from(document.querySelectorAll('.gallery-slide'));
-    const viewport = document.getElementById('galleryViewport');
-    const prevBtn = document.getElementById('galleryPrevBtn');
-    const nextBtn = document.getElementById('galleryNextBtn');
-    const counter = document.getElementById('galleryCounter');
-    const thumbnails = document.querySelectorAll('.thumb-card');
+// Add a parameter to check if the call is coming from initial page load
+function updateGallery(index, animate = true, isInitialLoad = false) {
+    currentIndex = index;
 
-    if (!track || originalSlides.length === 0) return;
+    const activeSlide = allSlides[currentIndex];
+    const slideWidth = activeSlide.offsetWidth;
+    const viewportWidth = viewport.offsetWidth;
 
-    // 1. Create Clones for Infinite Loop
-    const firstClone = originalSlides[0].cloneNode(true);
-    const lastClone = originalSlides[originalSlides.length - 1].cloneNode(true);
+    // Calculate offset to place active slide dead-center
+    const centerPosition = (viewportWidth / 2) - (slideWidth / 2);
+    const translateX = centerPosition - (currentIndex * (slideWidth + gap));
 
-    firstClone.classList.add('clone');
-    lastClone.classList.add('clone');
-
-    // Place last clone at start, first clone at end
-    track.appendChild(firstClone);
-    track.insertBefore(lastClone, originalSlides[0]);
-
-    // Gather updated slide list including clones
-    const allSlides = Array.from(track.children);
-    const totalRealSlides = originalSlides.length;
-    const gap = 24; // Must match CSS .gallery-track gap
-
-    // Start at index 1 (the first real slide)
-    let currentIndex = 1;
-    let isTransitioning = false;
-
-    // 2. Core Slider Position Function
-    function updateGallery(index, animate = true) {
-        currentIndex = index;
-
-        const activeSlide = allSlides[currentIndex];
-        const slideWidth = activeSlide.offsetWidth;
-        const viewportWidth = viewport.offsetWidth;
-
-        // Calculate offset to place active slide dead-center
-        const centerPosition = (viewportWidth / 2) - (slideWidth / 2);
-        const translateX = centerPosition - (currentIndex * (slideWidth + gap));
-
-        // Toggle CSS transition for smooth movement vs instant silent jump
-        if (animate) {
-            track.style.transition = 'transform 0.45s cubic-bezier(0.25, 1, 0.5, 1)';
-        } else {
-            track.style.transition = 'none';
-        }
-
-        track.style.transform = `translateX(${translateX}px)`;
-
-        // Determine mapped index for UI controls (0 to totalRealSlides - 1)
-        let realIndex = currentIndex - 1;
-        if (currentIndex === 0) realIndex = totalRealSlides - 1;
-        if (currentIndex === allSlides.length - 1) realIndex = 0;
-
-        // Update visual active states
-        allSlides.forEach((slide, i) => {
-            slide.classList.toggle('active', i === currentIndex);
-        });
-
-        // Update Counter
-        if (counter) {
-            counter.textContent = `${realIndex + 1} / ${totalRealSlides}`;
-        }
-
-        // Update Thumbnails
-        thumbnails.forEach((thumb, i) => {
-            if (i === realIndex) {
-                thumb.classList.add('active');
-                thumb.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-            } else {
-                thumb.classList.remove('active');
-            }
-        });
+    // Toggle CSS transition for smooth movement vs instant silent jump
+    if (animate) {
+        track.style.transition = 'transform 0.45s cubic-bezier(0.25, 1, 0.5, 1)';
+    } else {
+        track.style.transition = 'none';
     }
 
-    // 3. Silent Reset Handler at Boundaries
-    track.addEventListener('transitionend', () => {
-        isTransitioning = false;
+    track.style.transform = `translateX(${translateX}px)`;
 
-        // If moved onto the last-slide clone at the left boundary
-        if (currentIndex === 0) {
-            updateGallery(totalRealSlides, false); // Instant jump to real last slide
-        }
-        // If moved onto the first-slide clone at the right boundary
-        else if (currentIndex === allSlides.length - 1) {
-            updateGallery(1, false); // Instant jump to real first slide
-        }
+    // Determine mapped index for UI controls (0 to totalRealSlides - 1)
+    let realIndex = currentIndex - 1;
+    if (currentIndex === 0) realIndex = totalRealSlides - 1;
+    if (currentIndex === allSlides.length - 1) realIndex = 0;
+
+    // Update visual active states
+    allSlides.forEach((slide, i) => {
+        slide.classList.toggle('active', i === currentIndex);
     });
 
-    // 4. Control Event Listeners
-    prevBtn.addEventListener('click', () => {
-        if (isTransitioning) return;
-        isTransitioning = true;
-        updateGallery(currentIndex - 1, true);
-    });
+    // Update Counter
+    if (counter) {
+        counter.textContent = `${realIndex + 1} / ${totalRealSlides}`;
+    }
 
-    nextBtn.addEventListener('click', () => {
-        if (isTransitioning) return;
-        isTransitioning = true;
-        updateGallery(currentIndex + 1, true);
-    });
-
-    thumbnails.forEach((thumb) => {
-        thumb.addEventListener('click', () => {
-            if (isTransitioning) return;
-            const realIndex = parseInt(thumb.getAttribute('data-index'), 10);
-            isTransitioning = true;
-            updateGallery(realIndex + 1, true); // +1 offset for clone
-        });
-    });
-
-    // Keyboard Arrow Controls
-    document.addEventListener('keydown', (e) => {
-        if (isTransitioning) return;
-        if (e.key === 'ArrowLeft') {
-            isTransitioning = true;
-            updateGallery(currentIndex - 1, true);
-        }
-        if (e.key === 'ArrowRight') {
-            isTransitioning = true;
-            updateGallery(currentIndex + 1, true);
+    // Update Thumbnails
+    thumbnails.forEach((thumb, i) => {
+        if (i === realIndex) {
+            thumb.classList.add('active');
+            // FIX: Only scroll thumbnail strip into view if it's NOT the initial page load!
+            if (!isInitialLoad) {
+                thumb.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+            }
+        } else {
+            thumb.classList.remove('active');
         }
     });
-
-    // Handle Window Resizing
-    window.addEventListener('resize', () => updateGallery(currentIndex, false));
-
-    // Initialize initial position without animation
-    updateGallery(1, false);
-});
+}
