@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Marci Metzger Homes - Premier Real Estate Services in Pahrump Valley.">
+    <title>Marci Metzger Homes | Premier Real Estate Services</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Navigation Header -->
+    <header class="navbar" id="navbar">
+        <div class="container nav-container">
+            <!-- Brand Logo -->
+            <a href="#hero" class="brand-logo">
+                <img src="images/qt=q_95.webp" alt="Marci Metzger Homes Logo" class="header-logo-img " loading="lazy">
+            </a>
+
+            <!-- Mobile Navigation Menu Drawer -->
+            <nav class="nav-menu" id="navMenu">
+                <ul class="nav-list">
+                    <li><a href="#hero" class="nav-link active">Home</a></li>
+                    <li><a href="#about" class="nav-link">About Agent</a></li>
+                    <li><a href="#properties" class="nav-link">Properties</a></li>
+                    <li><a href="#services" class="nav-link">Services</a></li>
+                    <li><a href="#testimonials" class="nav-link">Testimonials</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+
+            <!-- Right Action Items (CTA Button & Hamburger Trigger) -->
+            <div class="nav-actions">
+                <a href="#contact" class="btn btn-primary nav-cta">Book Consultation</a>
+
+                <button class="hamburger-btn" id="hamburgerBtn" aria-label="Toggle Navigation" aria-expanded="false"
+                    aria-controls="navMenu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section with Background Slideshow -->
+        <section class="hero" id="hero">
+
+            <!-- Background Image Slideshow Container -->
+            <div class="hero-slideshow">
+                <div class="slide active" style="background-image: url('images/hero-bg.jpg');"></div>
+                <div class="slide" style="background-image: url('images/hero-bg1.jpg');"></div>
+                <div class="slide" style="background-image: url('images/hero-bg2.jpg');"></div>
+                <div class="slide" style="background-image: url('images/hero-bg3.jpg');"></div>
+            </div>
+
+            <!-- Dark Tint Overlay -->
+            <div class="hero-overlay"></div>
+
+            <!-- Hero Content Container -->
+            <div class="container hero-container">
+                <div class="hero-content">
+                    <span class="hero-tagline">Pahrump Valley Real Estate Specialist</span>
+                    <h1 class="hero-title">Your Trusted Partner in Finding Home</h1>
+                    <p class="hero-description">
+                        Offering unmatched local market expertise, tailored negotiation strategies, and personalized
+                        real estate guidance across Pahrump Valley.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#properties" class="btn btn-primary">View Featured Listings</a>
+                        <a href="#contact" class="btn btn-secondary">Contact Agent</a>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- About / Agent Introduction Section -->
+        <section class="about-section" id="about">
+            <div class="container about-container">
+
+                <!-- Left Column: Agent Photo & Scaled Badge -->
+                <div class="about-image-col">
+                    <div class="about-image-wrapper">
+                        <img src="images/agent-portrait.webp" alt="Marci Metzger - Dedicated Real Estate Professional "
+                            class="about-agent-img" loading="lazy">
+
+                        <!-- Refined Top Producer Badge -->
+                        <div class="about-badge" aria-label="Top Pahrump Producer Badge">
+                            <span class="badge-sub">TOP</span>
+                            <span class="badge-main">PAHRUMP PRODUCER</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: Biography & Checklist -->
+                <div class="about-content-col">
+                    <span class="about-eyebrow">DEDICATED REAL ESTATE PROFESSIONAL</span>
+
+                    <h2 class="about-heading">Client-Focused Service, Proven Results</h2>
+
+                    <div class="about-body">
+                        <p class="about-paragraph">
+                            With extensive knowledge of the Pahrump Valley real estate market, I provide strategic
+                            guidance and tailored solutions for buyers and sellers alike. My goal is to ensure every
+                            transaction is handled with seamless efficiency and utmost professionalism.
+                        </p>
+                        <p class="about-paragraph">
+                            Whether you are purchasing your dream home, relocating to Nevada, or positioning your
+                            property for maximum market value, I am committed to delivering an exceptional client
+                            experience from negotiation through closing.
+                        </p>
+                    </div>
+
+                    <!-- Value Points / Checklist -->
+                    <ul class="about-checklist" role="list">
+                        <li class="checklist-item">
+                            <span class="check-icon" aria-hidden="true">&#10003;</span>
+                            <span class="check-text">Expert Local Pahrump Valley Market Analysis</span>
+                        </li>
+                        <li class="checklist-item">
+                            <span class="check-icon" aria-hidden="true">&#10003;</span>
+                            <span class="check-text">Custom Home Staging &amp; High-Resolution Media</span>
+                        </li>
+                        <li class="checklist-item">
+                            <span class="check-icon" aria-hidden="true">&#10003;</span>
+                            <span class="check-text">Dedicated Buyer &amp; Seller Representation</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Featured Properties Section -->
+        <section class="section properties" id="properties">
+            <div class="container">
+                <div class="section-header center-text">
+                    <span class="section-subtitle">Portfolio</span>
+                    <h2 class="section-title">Featured Property Listings</h2>
+                    <p class="section-description">Explore premium residences, custom estates, and scenic parcels.</p>
+                </div>
+
+                <div class="property-grid">
+                    <!-- Property Card 1 -->
+                    <article class="property-card">
+                        <div class="property-image-container">
+                            <img src="images/property-1.jpg" alt="Modern Gourmet Kitchen Estate" class="property-image"
+                                loading="lazy">
+                            <span class="property-status">Featured Listing</span>
+                            <span class="property-price">$549,000</span>
+                        </div>
+                        <div class="property-details">
+                            <span class="property-location">Pahrump Valley, NV</span>
+                            <h3 class="property-title">Custom Interior Modern Villa</h3>
+                            <div class="property-specs">
+                                <span><strong>4</strong> Beds</span> • <span><strong>3</strong> Baths</span> •
+                                <span><strong>2,850</strong> Sq Ft</span>
+                            </div>
+                            <a href="#contact" class="btn btn-outline card-btn">Inquire Today</a>
+                        </div>
+                    </article>
+
+                    <!-- Property Card 2 -->
+                    <article class="property-card">
+                        <div class="property-image-container">
+                            <img src="images/property-2.jpg" alt="Scenic Valley View Property" class="property-image"
+                                loading="lazy">
+                            <span class="property-status">For Sale</span>
+                            <span class="property-price">$425,000</span>
+                        </div>
+                        <div class="property-details">
+                            <span class="property-location">Pahrump Valley, NV</span>
+                            <h3 class="property-title">Mountain View Horizon Estate</h3>
+                            <div class="property-specs">
+                                <span><strong>3</strong> Beds</span> • <span><strong>2</strong> Baths</span> •
+                                <span><strong>2,100</strong> Sq Ft</span>
+                            </div>
+                            <a href="#contact" class="btn btn-outline card-btn">Inquire Today</a>
+                        </div>
+                    </article>
+
+                    <!-- Property Card 3 -->
+                    <article class="property-card">
+                        <div class="property-image-container">
+                            <img src="images/property-3.jpg" alt="Desert Oasis Residence" class="property-image"
+                                loading="lazy">
+                            <span class="property-status">For Sale</span>
+                            <span class="property-price">$680,000</span>
+                        </div>
+                        <div class="property-details">
+                            <span class="property-location">Pahrump Valley, NV</span>
+                            <h3 class="property-title">Desert Oasis Luxury Property</h3>
+                            <div class="property-specs">
+                                <span><strong>5</strong> Beds</span> • <span><strong>4</strong> Baths</span> •
+                                <span><strong>3,400</strong> Sq Ft</span>
+                            </div>
+                            <a href="#contact" class="btn btn-outline card-btn">Inquire Today</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Luxury Real Estate Photo Gallery -->
+        <section class="gallery-section" id="gallery">
+            <div class="gallery-container">
+
+                <div class="gallery-header">
+                    <h2 class="gallery-title">Photo Gallery</h2>
+                    <p class="gallery-subtitle">Explore the property and surrounding estate grounds</p>
+                </div>
+
+                <!-- Main Gallery Viewport -->
+                <div class="gallery-viewport" id="galleryViewport">
+                    <div class="gallery-track" id="galleryTrack">
+
+                        <div class="gallery-slide">
+                            <img src="images/rs=w_984,h_655 (4).webp" alt="Property aerial view 1">
+                        </div>
+                        <div class="gallery-slide">
+                            <img src="images/rs=w_984,h_655 (3).webp" alt="Property aerial view 2">
+                        </div>
+                        <div class="gallery-slide">
+                            <img src="images/rs=w_984,h_655 (2).webp" alt="Property aerial view 3">
+                        </div>
+                        <div class="gallery-slide">
+                            <img src="images/rs=w_984,h_655 (1).webp" alt="Interior lounge area">
+                        </div>
+                        <div class="gallery-slide">
+                            <img src="images/rs=w_984,h_655.webp" alt="Community pool grounds">
+                        </div>
+                        <div class="gallery-slide">
+                            <img src="images/rs=w_984,h_656 (1).webp" alt="Tennis courts">
+                        </div>
+                        <div class="gallery-slide">
+                            <img src="images/rs=w_984,h_656.webp" alt="Sports complex overview">
+                        </div>
+                        <div class="gallery-slide">
+                            <img src="images/rs=w_1200,h_600,cg_true,m.webp" alt="Luxury pool house">
+                        </div>
+                        <div class="gallery-slide">
+                            <img src="images/cr=w_1200,h_600.webp" alt="Main house front pool">
+                        </div>
+                        <div class="gallery-slide">
+                            <img src="images/rs=w_1200,h_600,cg_true.webp" alt="Modern kitchen interior">
+                        </div>
+
+                    </div>
+
+                    <!-- Navigation Controls -->
+                    <button class="gallery-nav prev-btn" id="galleryPrevBtn"
+                        aria-label="Previous Photo">&#10094;</button>
+                    <button class="gallery-nav next-btn" id="galleryNextBtn" aria-label="Next Photo">&#10095;</button>
+
+                    <!-- Counter Pill -->
+                    <div class="gallery-counter" id="galleryCounter">1 / 10</div>
+                </div>
+
+                <!-- Thumbnail Navigation Strip -->
+                <div class="gallery-thumbnails" id="galleryThumbnails">
+                    <button class="thumb-card active" data-index="0"><img src="images/rs=w_984,h_655 (4).webp"
+                            alt="Thumb 1"></button>
+                    <button class="thumb-card" data-index="1"><img src="images/rs=w_984,h_655 (3).webp"
+                            alt="Thumb 2"></button>
+                    <button class="thumb-card" data-index="2"><img src="images/rs=w_984,h_655 (2).webp"
+                            alt="Thumb 3"></button>
+                    <button class="thumb-card" data-index="3"><img src="images/rs=w_984,h_655 (1).webp"
+                            alt="Thumb 4"></button>
+                    <button class="thumb-card" data-index="4"><img src="images/rs=w_984,h_655.webp"
+                            alt="Thumb 5"></button>
+                    <button class="thumb-card" data-index="5"><img src="images/rs=w_984,h_656 (1).webp"
+                            alt="Thumb 6"></button>
+                    <button class="thumb-card" data-index="6"><img src="images/rs=w_984,h_656.webp"
+                            alt="Thumb 7"></button>
+                    <button class="thumb-card" data-index="7"><img src="images/rs=w_1200,h_600,cg_true,m.webp"
+                            alt="Thumb 8"></button>
+                    <button class="thumb-card" data-index="8"><img src="images/cr=w_1200,h_600.webp"
+                            alt="Thumb 9"></button>
+                    <button class="thumb-card" data-index="9"><img src="images/rs=w_1200,h_600,cg_true.webp"
+                            alt="Thumb 10"></button>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="section services" id="services">
+            <div class="container">
+                <div class="section-header center-text">
+                    <span class="section-subtitle">What We Offer</span>
+                    <h2 class="section-title">Comprehensive Real Estate Services</h2>
+                    <p class="section-description">Dedicated guidance tailored to your unique real estate goals in
+                        Pahrump Valley.</p>
+                </div>
+
+                <div class="services-grid">
+                    <!-- Service Card 1 -->
+                    <article class="service-card">
+                        <div class="service-image-wrapper">
+                            <img src="images/service-1.jpg" alt="Real Estate Done Right" class="service-image"
+                                onerror="this.src='https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=80'"
+                                loading="lazy">
+                        </div>
+                        <div class="service-content">
+                            <h3 class="service-title">Real Estate Done Right</h3>
+                            <p class="service-description">
+                                Nervous about your property adventure? Don't be. Whether you're getting ready to buy or
+                                sell your residence, looking at investment properties, or just curious about the
+                                markets, our team ensures you get the best experience possible!
+                            </p>
+                        </div>
+                    </article>
+
+                    <!-- Service Card 2 -->
+                    <article class="service-card">
+                        <div class="service-image-wrapper">
+                            <img src="images/service-2.jpg" alt="Commercial & Residential" class="service-image"
+                                onerror="this.src='https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80'"
+                                loading="lazy">
+                        </div>
+                        <div class="service-content">
+                            <h3 class="service-title">Commercial & Residential</h3>
+                            <p class="service-description">
+                                Large or small, condo or mansion, we can find it and get at the price that's right.
+                                Fixer-uppers? Luxury? We can help with all of it! We live, work, and play in this
+                                community. Happy to help you find where to put your hard-earned dollars.
+                            </p>
+                        </div>
+                    </article>
+
+                    <!-- Service Card 3 -->
+                    <article class="service-card">
+                        <div class="service-image-wrapper">
+                            <img src="images/service-3.jpg" alt="Rely on Expertise" class="service-image"
+                                onerror="this.src='https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=800&q=80'"
+                                loading="lazy">
+                        </div>
+                        <div class="service-content">
+                            <h3 class="service-title">Rely on Expertise</h3>
+                            <p class="service-description">
+                                If you have questions about affordability, credit, and loan options, trust us to connect
+                                you with the right people to get the answers you need in a timely fashion. We make sure
+                                you feel confident and educated every step of the way.
+                            </p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="section luxury-testimonials" id="testimonials">
+            <div class="container">
+                <div class="section-header center-text">
+                    <span class="section-subtitle">SUCCESS STORIES</span>
+                    <h2 class="section-title">Client Experiences</h2>
+                    <p class="section-description">Read what our clients have to say about working with Marci Metzger.
+                    </p>
+                </div>
+
+                <div class="luxury-slider-container">
+                    <div class="luxury-track" id="testimonialTrack">
+                        <!-- Slide 1 -->
+                        <article class="luxury-slide">
+                            <div class="slide-grid">
+                                <div class="slide-image-col">
+                                    <img src="images/client-story-1.jpg" alt="Happy Pahrump Homeowners"
+                                        class="slide-img" onerror="this.src='images/client1.jpg'" loading="lazy">
+                                </div>
+                                <div class="slide-content-col">
+                                    <div class="decorative-quote-mark">“</div>
+                                    <blockquote class="luxury-quote">
+                                        "Marci's extensive knowledge of the Pahrump luxury market, combined with
+                                        meticulous attention to detail, helped us find our dream property. Her
+                                        professionalism and dedication made the entire process seamless."
+                                    </blockquote>
+                                    <div class="author-block">
+                                        <h3 class="author-name">Vinny & Christina P.</h3>
+                                        <span class="author-tagline">Verified Homeowners • Pahrump, NV</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Slide 2 -->
+                        <article class="luxury-slide">
+                            <div class="slide-grid">
+                                <div class="slide-image-col">
+                                    <img src="images/client-story-2.jpg" alt="Luxury Real Estate Interior"
+                                        class="slide-img" onerror="this.src='images/client2.jpg'" loading="lazy">
+                                </div>
+                                <div class="slide-content-col">
+                                    <div class="decorative-quote-mark">“</div>
+                                    <blockquote class="luxury-quote">
+                                        "Selling our estate was executed flawlessly. Marci’s targeted digital campaign
+                                        and expert staging guidance secured full asking price in less than two weeks on
+                                        the market!"
+                                    </blockquote>
+                                    <div class="author-block">
+                                        <h3 class="author-name">David & Elena R.</h3>
+                                        <span class="author-tagline">Property Sellers • Desert Trails</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Slide 3 -->
+                        <article class="luxury-slide">
+                            <div class="slide-grid">
+                                <div class="slide-image-col">
+                                    <img src="images/client-story-3.jpg" alt="Pahrump Valley Estate" class="slide-img"
+                                        onerror="this.src='images/client3.jpg'" loading="lazy">
+                                </div>
+                                <div class="slide-content-col">
+                                    <div class="decorative-quote-mark">“</div>
+                                    <blockquote class="luxury-quote">
+                                        "As out-of-state investors, having Marci on the ground in Pahrump gave us
+                                        complete peace of mind. Responsive, insightful, and always looking out for our
+                                        best interests."
+                                    </blockquote>
+                                    <div class="author-block">
+                                        <h3 class="author-name">Marcus Vance</h3>
+                                        <span class="author-tagline">Real Estate Investor • Zillow Review</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <!-- Radio Controls -->
+                    <div class="luxury-radio-nav" id="radioNav">
+                        <label class="radio-dot-label" for="radio1">
+                            <input type="radio" name="testimonial-radio" id="radio1" value="0" checked
+                                aria-label="Go to Slide 1">
+                            <span class="custom-dot"></span>
+                        </label>
+                        <label class="radio-dot-label" for="radio2">
+                            <input type="radio" name="testimonial-radio" id="radio2" value="1"
+                                aria-label="Go to Slide 2">
+                            <span class="custom-dot"></span>
+                        </label>
+                        <label class="radio-dot-label" for="radio3">
+                            <input type="radio" name="testimonial-radio" id="radio3" value="2"
+                                aria-label="Go to Slide 3">
+                            <span class="custom-dot"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Affiliation Badges Banner -->
+        <section class="trust-badges-section">
+            <div class="container trust-container">
+                <h4 class="trust-title">
+                    <span class="trust-title-text">PROUD MEMBER &amp; TRUSTED PARTNER</span>
+                </h4>
+
+                <!-- Infinite Carousel Outer Container -->
+                <div class="trust-carousel-wrapper">
+                    <div class="trust-carousel-track">
+
+                        <!-- Set 1 -->
+                        <div class="trust-logo-card">
+                            <img src="images/cr=w_200,h_200 (1).webp" alt="Marci Metzger Homes Logo"
+                                class="trust-logo-img" loading="lazy">
+                        </div>
+                        <div class="trust-logo-card">
+                            <img src="images/rs=w_223,h_200,cg_true.webp" alt="Pahrump Valley Chamber of Commerce Logo"
+                                class="trust-logo-img" loading="lazy">
+                        </div>
+                        <div class="trust-logo-card">
+                            <img src="images/rs=w_199,h_200,cg_true.webp" alt="Realtor Member Logo"
+                                class="trust-logo-img" loading="lazy">
+                        </div>
+                        <div class="trust-logo-card">
+                            <img src="images/cr=w_200,h_200.webp" alt="Equal Housing Opportunity Logo"
+                                class="trust-logo-img" loading="lazy">
+                        </div>
+
+                        <!-- Set 2 -->
+                        <div class="trust-logo-card">
+                            <img src="images/cr=w_200,h_200 (1).webp" alt="Marci Metzger Homes Logo"
+                                class="trust-logo-img" loading="lazy">
+                        </div>
+                        <div class="trust-logo-card">
+                            <img src="images/rs=w_223,h_200,cg_true.webp" alt="Pahrump Valley Chamber of Commerce Logo"
+                                class="trust-logo-img" loading="lazy">
+                        </div>
+                        <div class="trust-logo-card">
+                            <img src="images/rs=w_199,h_200,cg_true.webp" alt="Realtor Member Logo"
+                                class="trust-logo-img" loading="lazy">
+                        </div>
+                        <div class="trust-logo-card">
+                            <img src="images/cr=w_200,h_200.webp" alt="Equal Housing Opportunity Logo"
+                                class="trust-logo-img" loading="lazy">
+                        </div>
+
+                        <!-- Set 3 -->
+                        <div class="trust-logo-card">
+                            <img src="images/cr=w_200,h_200 (1).webp" alt="Marci Metzger Homes Logo"
+                                class="trust-logo-img" loading="lazy">
+                        </div>
+                        <div class="trust-logo-card">
+                            <img src="images/rs=w_223,h_200,cg_true.webp" alt="Pahrump Valley Chamber of Commerce Logo"
+                                class="trust-logo-img" loading="lazy">
+                        </div>
+                        <div class="trust-logo-card">
+                            <img src="images/rs=w_199,h_200,cg_true.webp" alt="Realtor Member Logo"
+                                class="trust-logo-img" loading="lazy">
+                        </div>
+                        <div class="trust-logo-card">
+                            <img src="images/cr=w_200,h_200.webp" alt="Equal Housing Opportunity Logo"
+                                class="trust-logo-img" loading="lazy">
+                        </div>
+
+                        <!-- Set 4 -->
+                        <div class="trust-logo-card">
+                            <img src="images/cr=w_200,h_200 (1).webp" alt="Marci Metzger Homes Logo"
+                                class="trust-logo-img" loading="lazy">
+                        </div>
+                        <div class="trust-logo-card">
+                            <img src="images/rs=w_223,h_200,cg_true.webp" alt="Pahrump Valley Chamber of Commerce Logo"
+                                class="trust-logo-img" loading="lazy">
+                        </div>
+                        <div class="trust-logo-card">
+                            <img src="images/rs=w_199,h_200,cg_true.webp" alt="Realtor Member Logo"
+                                class="trust-logo-img" loading="lazy">
+                        </div>
+                        <div class="trust-logo-card">
+                            <img src="images/cr=w_200,h_200.webp" alt="Equal Housing Opportunity Logo"
+                                class="trust-logo-img" loading="lazy">
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact-section" id="contact">
+            <div class="container contact-container">
+                <div class="contact-info-col">
+                    <span class="contact-eyebrow">GET IN TOUCH</span>
+                    <h2 class="contact-heading">Schedule a Private Consultation</h2>
+                    <p class="contact-description">
+                        Ready to buy or sell in Pahrump Valley? Let's start a conversation about your real estate goals.
+                    </p>
+
+                    <div class="contact-details">
+                        <div class="contact-detail-item">
+                            <h3 class="contact-detail-label">Brokerage</h3>
+                            <address class="contact-detail-value">
+                                3190 HW-160, Suite F<br>
+                                Pahrump, Nevada 89048
+                            </address>
+                        </div>
+                        <div class="contact-detail-item">
+                            <h3 class="contact-detail-label">Direct Line</h3>
+                            <a href="tel:2069196886" class="contact-detail-link">(206) 919-6886</a>
+                        </div>
+                        <div class="contact-detail-item">
+                            <h3 class="contact-detail-label">Office Hours</h3>
+                            <p class="contact-detail-value">Open daily 8:00 am – 7:00 pm</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form-col">
+                    <div class="contact-form-card">
+                        <h3 class="form-heading">Send a Message</h3>
+                        <form class="contact-form" action="#" method="POST">
+                            <div class="form-group">
+                                <label for="contact-name" class="form-label">Name <span
+                                        class="required-asterisk">*</span></label>
+                                <input type="text" id="contact-name" name="name" class="form-input"
+                                    placeholder="Your full name" required autocomplete="name">
+                            </div>
+                            <div class="form-group">
+                                <label for="contact-email" class="form-label">Email <span
+                                        class="required-asterisk">*</span></label>
+                                <input type="email" id="contact-email" name="email" class="form-input"
+                                    placeholder="your.email@example.com" required autocomplete="email">
+                            </div>
+                            <div class="form-group">
+                                <label for="contact-message" class="form-label">Message <span
+                                        class="required-asterisk">*</span></label>
+                                <textarea id="contact-message" name="message" class="form-input form-textarea" rows="4"
+                                    placeholder="How can I assist you with your real estate goals?" required></textarea>
+                            </div>
+                            <button type="submit" class="contact-submit-btn">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="site-footer" id="site-footer">
+            <div class="footer-container">
+                <div class="footer-grid">
+                    <div class="footer-col footer-col-brand">
+                        <div class="footer-logo-box">
+                            <img src="images/qt=q_95.webp" alt="Marci Metzger Homes Logo" class="footer-logo-img"
+                                loading="lazy">
+                        </div>
+                        <h3 class="footer-company-title">MARCI METZGER HOMES</h3>
+                        <p class="footer-description">
+                            Providing exceptional real estate service across Pahrump Valley.
+                        </p>
+                    </div>
+
+                    <div class="footer-col footer-col-links">
+                        <h4 class="footer-col-title">QUICK LINKS</h4>
+                        <nav class="footer-nav" aria-label="Footer Navigation">
+                            <ul class="footer-nav-list">
+                                <li><a href="#hero" class="footer-nav-link">Home</a></li>
+                                <li><a href="#properties" class="footer-nav-link">Properties</a></li>
+                                <li><a href="#services" class="footer-nav-link">Services</a></li>
+                                <li><a href="#testimonials" class="footer-nav-link">Testimonials</a></li>
+                                <li><a href="#contact" class="footer-nav-link">Contact</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+
+                    <div class="footer-col footer-col-contact">
+                        <h4 class="footer-col-title">CONTACT</h4>
+                        <address class="footer-contact-details">
+                            <p class="contact-item">
+                                <span class="contact-label">Brokerage</span><br>
+                                3190 HW-160, Suite F<br>
+                                Pahrump, Nevada 89048
+                            </p>
+                            <p class="contact-item">
+                                <span class="contact-label">Direct Line</span><br>
+                                <a href="tel:2069196886" class="contact-link">(206) 919-6886</a>
+                            </p>
+                            <p class="contact-item">
+                                <span class="contact-label">Office Hours</span><br>
+                                Open daily 8:00 am – 7:00 pm
+                            </p>
+                        </address>
+                    </div>
+                </div>
+
+                <hr class="footer-divider">
+
+                <div class="footer-bottom">
+                    <p class="footer-copyright">&copy; 2026 Marci Metzger Homes.</p>
+                    <p class="footer-legal">Equal Housing Opportunity.</p>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <script src="script.js"></script>
+    <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+</body>
+
+</html>
